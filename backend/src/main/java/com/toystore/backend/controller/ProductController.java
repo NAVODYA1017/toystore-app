@@ -11,10 +11,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:5173") // React frontend URL
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
 
-    // Encapsulation - service is private
     @Autowired
     private ProductService productService;
 
@@ -34,10 +33,9 @@ public class ProductController {
 
     // READ ONE - GET /api/products/{id}
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable String id) {
-        return productService.getProductById(id)
-                .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<Product> getProductById(@PathVariable String id) {  // ✅ fixed
+        Product product = productService.getProductById(id);                  // ✅ fixed
+        return new ResponseEntity<>(product, HttpStatus.OK);                  // ✅ fixed
     }
 
     // UPDATE - PUT /api/products/{id}
@@ -60,6 +58,13 @@ public class ProductController {
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {
         List<Product> products = productService.getProductsByCategory(category);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    // EXTRA - GET /api/products/price/{maxPrice}
+    @GetMapping("/price/{maxPrice}")
+    public ResponseEntity<List<Product>> getByMaxPrice(@PathVariable double maxPrice) {
+        List<Product> products = productService.getProductsByMaxPrice(maxPrice);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }

@@ -9,15 +9,14 @@ import java.util.List;
 public interface ProductRepository extends MongoRepository<Product, String> {
 
     // Find products by category
-    List<Product> findByCategory(String category);
+    List<Product> findByCategoryId(String categoryId);
 
-    // Find products by name
-    List<Product> findByName(String name);
+    // Search products by name (case insensitive)
+    List<Product> findByNameContainingIgnoreCase(String name);
 
-    // Find products with price less than given value
-    List<Product> findByPriceLessThan(double price);
+    // Find products below a certain price
+    List<Product> findByPriceLessThanEqual(Double price);
 
-    // Find products with stock greater than zero
-    List<Product> findByStockGreaterThan(int stock);
-
+    // Find products that are in stock
+    List<Product> findByStockQuantityGreaterThan(Integer quantity);
 }

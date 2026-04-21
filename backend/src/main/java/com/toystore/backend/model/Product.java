@@ -1,34 +1,61 @@
-package com.toystore.backend.model;
+package com.toystore.backend.model;  // ← this was the fix
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
 
-@Data                    // Encapsulation ← generates private getters/setters
-@NoArgsConstructor       // default constructor
-@AllArgsConstructor      // constructor with all fields
 @Document(collection = "products")
 public class Product {
 
-    // Encapsulation - all fields are private
     @Id
     private String id;
     private String name;
     private String description;
-    private double price;
-    private int stock;
-    private String category;
+    private Double price;
+    private Integer stockQuantity;
+    private String imageUrl;
+    private String categoryId;
+    private LocalDateTime createdAt;
 
-    // Polymorphism - override toString
-    @Override
-    public String toString() {
-        return "Product{name=" + name + ", price=" + price + "}";
+    // ✅ Default Constructor
+    public Product() {
+        this.createdAt = LocalDateTime.now();
     }
 
-    // Inheritance - custom method
-    public String getProductSummary() {
-        return name + " costs Rs." + price + " | Stock: " + stock;
+    // ✅ Parameterized Constructor
+    public Product(String name, String description, Double price,
+                   Integer stockQuantity, String imageUrl, String categoryId) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+        this.imageUrl = imageUrl;
+        this.categoryId = categoryId;
+        this.createdAt = LocalDateTime.now();
     }
+
+    // ✅ Getters & Setters
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
+
+    public Integer getStockQuantity() { return stockQuantity; }
+    public void setStockQuantity(Integer stockQuantity) { this.stockQuantity = stockQuantity; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public String getCategoryId() { return categoryId; }
+    public void setCategoryId(String categoryId) { this.categoryId = categoryId; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

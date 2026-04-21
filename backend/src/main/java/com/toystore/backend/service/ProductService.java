@@ -4,14 +4,11 @@ import com.toystore.backend.model.Product;
 import com.toystore.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
 
-    // Encapsulation - repository is private
     @Autowired
     private ProductRepository productRepository;
 
@@ -25,9 +22,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    // READ ONE - Get single product by ID
-    public Optional<Product> getProductById(String id) {
-        return productRepository.findById(id);
+    // READ ONE - Get single product by ID ✅ Fixed
+    public Product getProductById(String id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
     }
 
     // UPDATE - Update existing product
@@ -35,12 +33,11 @@ public class ProductService {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
 
-        // Polymorphism - same update method handles any field change
         product.setName(productDetails.getName());
         product.setDescription(productDetails.getDescription());
         product.setPrice(productDetails.getPrice());
-        product.setStock(productDetails.getStock());
-        product.setCategory(productDetails.getCategory());
+        product.setStockQuantity(productDetails.getStockQuantity());
+        product.setCategoryId(productDetails.getCategoryId());
 
         return productRepository.save(product);
     }
@@ -52,11 +49,11 @@ public class ProductService {
 
     // EXTRA - Find by category
     public List<Product> getProductsByCategory(String category) {
-        return productRepository.findByCategory(category);
+        return productRepository.findByCategoryId(category);
     }
 
     // EXTRA - Find by price range
     public List<Product> getProductsByMaxPrice(double price) {
-        return productRepository.findByPriceLessThan(price);
+        return productRepository.findByPriceLessThanEqual(price);
     }
 }
