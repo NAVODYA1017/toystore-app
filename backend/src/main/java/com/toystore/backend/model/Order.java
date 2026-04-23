@@ -13,9 +13,14 @@ public class Order {
     private String id;
 
     private String customerName;
+    private String customerEmail;
+    private String phoneNumber;
+    private String deliveryAddress;
     private String productName;
     private int quantity;
     private double totalPrice;
-    private String status;
+    private String paymentMethod;  // CASH, CARD, ONLINE
+    private String status;         // PENDING, SHIPPED, DELIVERED, CANCELLED
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
