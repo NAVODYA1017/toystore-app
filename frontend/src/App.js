@@ -13,16 +13,21 @@ function App() {
     return (
         <Router>
             <div style={{ fontFamily: 'Segoe UI, sans-serif', background: '#f0f2f5', minHeight: '100vh' }}>
-                <nav style={{ background: '#1a73e8', padding: '16px 32px', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '20px', fontWeight: 'bold' }}>🧸 Toy Store</span>
+                <nav style={{
+                    background: 'linear-gradient(90deg, #ffd6e7, #ffecb3, #d4f1c0, #c5e8f7, #dcc5f7)',
+                    padding: '16px 32px', display: 'flex',
+                    justifyContent: 'space-between', alignItems: 'center',
+                    boxShadow: '0 2px 12px rgba(155,121,232,0.2)'
+                }}>
+                    <span style={{ fontSize: '22px', fontWeight: '800', color: '#4a2d8f' }}>🧸 Toy Store</span>
                     <div style={{ display: 'flex', gap: '20px' }}>
-                        <Link to="/users" style={{ color: 'white', textDecoration: 'none' }}>Admin</Link>
+                        <Link to="/users" style={{ color: '#333', textDecoration: 'none', fontWeight: '700' }}>Admin</Link>
                         {loggedInUser ? (
-                            <Link to="/profile" style={{ color: 'white', textDecoration: 'none' }}>👤 {loggedInUser.name}</Link>
+                            <Link to="/profile" style={{ color: '#7c3aed', textDecoration: 'none', fontWeight: '700' }}>👤 {loggedInUser.name}</Link>
                         ) : (
                             <>
-                                <Link to="/login" style={{ color: 'white', textDecoration: 'none' }}>Login</Link>
-                                <Link to="/register" style={{ color: 'white', textDecoration: 'none' }}>Register</Link>
+                                <Link to="/login" style={{ color: '#c0368a', textDecoration: 'none', fontWeight: '700' }}>Login</Link>
+                                <Link to="/register" style={{ color: '#2563c0', textDecoration: 'none', fontWeight: '700' }}>Register</Link>
                             </>
                         )}
                     </div>
