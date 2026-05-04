@@ -2,56 +2,53 @@ package com.toystore.backend.controller;
 
 import com.toystore.backend.model.Review;
 import com.toystore.backend.service.ReviewService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/reviews")
 @CrossOrigin(origins = "*")
+@RequiredArgsConstructor
 public class ReviewController {
 
-    @Autowired
-    private ReviewService reviewService;
+    private final ReviewService reviewService;
 
-    // CREATE - add new review
+    // POST /api/reviews
     @PostMapping
-    public Review addReview(@RequestBody Review review) {
-        return reviewService.addReview(review);
+    public ResponseEntity<Review> createReview(@RequestBody Review review) {
+        return ResponseEntity.ok(reviewService.createReview(review));
     }
 
-    // READ - get all reviews
+    // GET /api/reviews
     @GetMapping
-    public List<Review> getAllReviews() {
-        return reviewService.getAllReviews();
+    public ResponseEntity<List<Review>> getAllReviews() {
+        return ResponseEntity.ok(reviewService.getAllReviews());
     }
 
-    // READ - get reviews by product
+    // GET /api/reviews/product/{productId}
     @GetMapping("/product/{productId}")
-    public List<Review> getByProduct(
-            @PathVariable String productId) {
-        return reviewService.getReviewsByProduct(productId);
+    public ResponseEntity<List<Review>> getByProduct(@PathVariable String productId) {
+        return ResponseEntity.ok(reviewService.getReviewsByProduct(productId));
     }
 
-    // READ - get single review
-    @GetMapping("/{id}")
-    public Optional<Review> getById(@PathVariable String id) {
-        return reviewService.getReviewById(id);
+    // GET /api/reviews/user/{userId}
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Review>> getByUser(@PathVariable String userId) {
+        return ResponseEntity.ok(reviewService.getReviewsByUser(userId));
     }
 
-    // UPDATE - edit a review
+    // PUT /api/reviews/{id}
     @PutMapping("/{id}")
-    public Review updateReview(@PathVariable String id,
-                               @RequestParam int rating,
-                               @RequestParam String comment) {
-        return reviewService.updateReview(id, rating, comment);
+    public ResponseEntity<Review> updateReview(@PathVariable String id, @RequestBody Review review) {
+        return ResponseEntity.ok(reviewService.updateReview(id, review));
     }
 
-    // DELETE - remove a review
+    // DELETE /api/reviews/{id}
     @DeleteMapping("/{id}")
-    public String deleteReview(@PathVariable String id) {
+    public ResponseEntity<String> deleteReview(@PathVariable String id) {
         reviewService.deleteReview(id);
-        return "Review deleted successfully!";
+        return ResponseEntity.ok("Review deleted successfully");
     }
 }

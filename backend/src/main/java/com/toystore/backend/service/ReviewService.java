@@ -2,19 +2,21 @@ package com.toystore.backend.service;
 
 import com.toystore.backend.model.Review;
 import com.toystore.backend.repository.ReviewRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
 
-    @Autowired
-    private ReviewRepository reviewRepository;
+    private final ReviewRepository reviewRepository;
 
-    // CREATE
-    public Review addReview(Review review) {
+    // CREATE - add a new review
+    public Review createReview(Review review) {
+        review.setCreatedAt(LocalDateTime.now());
         return reviewRepository.save(review);
     }
 
@@ -23,28 +25,26 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
-    // READ - get reviews by product
+    // READ - get reviews for one product
     public List<Review> getReviewsByProduct(String productId) {
         return reviewRepository.findByProductId(productId);
     }
 
-    // READ - get single review
-    public Optional<Review> getReviewById(String id) {
-        return reviewRepository.findById(id);
+    // READ - get reviews by one user
+    public List<Review> getReviewsByUser(String userId) {
+        return reviewRepository.findByUserId(userId);
     }
 
-    // UPDATE
-    public Review updateReview(String id, int newRating,
-                               String newComment) {
-        Review review = reviewRepository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Review not found"));
-        review.setRating(newRating);
-        review.setComment(newComment);
-        return reviewRepository.save(review);
+    // UPDATE - edit a review
+    public Review updateReview(String id, Review updatedReview) {
+        Review existing = reviewRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Review not found with id: " + id));
+        existing.setRating(updatedReview.getRating());
+        existing.setComment(updatedReview.getComment());
+        return reviewRepository.save(existing);
     }
 
-    // DELETE
+    // DELETE - remove a review
     public void deleteReview(String id) {
         reviewRepository.deleteById(id);
     }

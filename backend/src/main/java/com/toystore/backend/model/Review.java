@@ -12,22 +12,10 @@ public class Review {
     @Id
     private String id;
 
-    private String productId;
-    private String userId;
-    private int rating;        // 1 to 5 stars
-    private String comment;
-    private LocalDateTime createdAt;
-
-    public Review() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    public Review(String productId, String userId,
-                  int rating, String comment) {
-        this.productId = productId;
-        this.userId = userId;
-        this.rating = rating;
-        this.comment = comment;
-        this.createdAt = LocalDateTime.now();
-    }
+    private String productId;   // which product this review is for
+    private String userId;      // who wrote the review
+    private String username;    // display name of the reviewer
+    private int rating;         // 1 to 5 stars
+    private String comment;     // the review text
+    private LocalDateTime createdAt;  // when it was posted
 }
