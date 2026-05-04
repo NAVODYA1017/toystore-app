@@ -1,0 +1,14 @@
+### Create a new product (POST)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Lego Set",
+  "description": "Classic building blocks",
+  "price": 29.99,
+  "stock": 50,
+  "category": "Building"
+}
+
+### Get all products (GET)
+GET http://localhost:8080/api/products
