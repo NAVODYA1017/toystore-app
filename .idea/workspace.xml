@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductDetail.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/productService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/toystore-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/toystore-app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Shop.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Product/ProductDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Product/ProductForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Product/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Product/ProductList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/productService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/productService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,9 @@
         <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -58,9 +59,15 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editing.templates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\toystore-app\frontend\src\components" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.toystore.backend.BackendApplication" />
@@ -97,11 +104,17 @@
       <option name="presentableId" value="Default" />
       <updated>1773764709794</updated>
       <workItem from="1774290251195" duration="6000" />
-      <workItem from="1777900583363" duration="4823000" />
+      <workItem from="1777900583363" duration="5456000" />
+      <workItem from="1777947279994" duration="109000" />
+      <workItem from="1777955086405" duration="10043000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
