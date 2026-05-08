@@ -4,7 +4,9 @@ import com.toystore.backend.model.Product;
 import com.toystore.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -12,48 +14,34 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    // CREATE - Add new product
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
-    }
-
-    // READ ALL - Get all products
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // READ ONE - Get single product by ID ✅ Fixed
-    public Product getProductById(String id) {
-        return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    public Optional<Product> getProductById(String id) {
+        return productRepository.findById(id);
     }
 
-    // UPDATE - Update existing product
-    public Product updateProduct(String id, Product productDetails) {
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
-
-        product.setName(productDetails.getName());
-        product.setDescription(productDetails.getDescription());
-        product.setPrice(productDetails.getPrice());
-        product.setStockQuantity(productDetails.getStockQuantity());
-        product.setCategoryId(productDetails.getCategoryId());
-
+    public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
-    // DELETE - Remove product
-    public void deleteProduct(String id) {
-        productRepository.deleteById(id);
+    public Optional<Product> updateProduct(String id, Product productDetails) {
+        return productRepository.findById(id).map(existing -> {
+            existing.setName(productDetails.getName());
+            existing.setDescription(productDetails.getDescription());
+            existing.setPrice(productDetails.getPrice());
+            existing.setStockQuantity(productDetails.getStockQuantity());
+            existing.setImageUrl(productDetails.getImageUrl());
+            existing.setCategoryId(productDetails.getCategoryId());
+            return productRepository.save(existing);
+        });
     }
 
-    // EXTRA - Find by category
-    public List<Product> getProductsByCategory(String category) {
-        return productRepository.findByCategoryId(category);
-    }
-
-    // EXTRA - Find by price range
-    public List<Product> getProductsByMaxPrice(double price) {
-        return productRepository.findByPriceLessThanEqual(price);
+    public boolean deleteProduct(String id) {
+        return productRepository.findById(id).map(product -> {
+            productRepository.delete(product);
+            return true;
+        }).orElse(false);
     }
 }

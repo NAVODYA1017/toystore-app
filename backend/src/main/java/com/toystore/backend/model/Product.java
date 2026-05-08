@@ -2,6 +2,7 @@ package com.toystore.backend.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
 
 @Document(collection = "products")
 public class Product {
@@ -11,66 +12,50 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-    private Integer stock;
-    private String imageUrl;  // ← NEW FIELD
+    private Integer stockQuantity;
+    private String imageUrl;
+    private String categoryId;
+    private LocalDateTime createdAt;
 
-    // Constructors
-    public Product() {}
-
-    public Product(String name, String description, Double price, Integer stock, String imageUrl) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
-        this.imageUrl = imageUrl;
+    // ── Default Constructor ──
+    public Product() {
+        this.createdAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
-    public String getId() {
-        return id;
+    // ── Parameterized Constructor ──
+    public Product(String name, String description, Double price,
+                   Integer stockQuantity, String imageUrl, String categoryId) {
+        this.name          = name;
+        this.description   = description;
+        this.price         = price;
+        this.stockQuantity = stockQuantity;
+        this.imageUrl      = imageUrl;
+        this.categoryId    = categoryId;
+        this.createdAt     = LocalDateTime.now();
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    // ── Getters & Setters ──
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public String getDescription() {
-        return description;
-    }
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public Integer getStockQuantity() { return stockQuantity; }
+    public void setStockQuantity(Integer stockQuantity) { this.stockQuantity = stockQuantity; }
 
-    public Double getPrice() {
-        return price;
-    }
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+    public String getCategoryId() { return categoryId; }
+    public void setCategoryId(String categoryId) { this.categoryId = categoryId; }
 
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
