@@ -7,6 +7,7 @@ function Register() {
     const navigate = useNavigate();
     const [form, setForm] = useState({ name: '', email: '', password: '', phone: '', address: '' });
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,9 +17,9 @@ function Register() {
         if (!form.name || !form.email || !form.password) { setError('Name, email and password are required'); return; }
         try {
             setLoading(true);
-            const newUser = await registerUser({ ...form, role: 'CUSTOMER' });
-            localStorage.setItem('loggedInUser', JSON.stringify(newUser));
-            navigate('/profile');
+            await registerUser(form); // ✅ no role sent — backend sets ROLE_CLIENT automatically
+            setSuccess('Account created! Redirecting to login...');
+            setTimeout(() => navigate('/login'), 1500); // ✅ go to login after register
         } catch (err) {
             setError('Email already exists or registration failed');
         } finally {
@@ -61,6 +62,13 @@ function Register() {
                 {error && (
                     <div style={{ background: '#ffe5e5', color: '#c0000a', borderRadius: '10px', padding: '10px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>
                         ⚠️ {error}
+                    </div>
+                )}
+
+                {/* ✅ Success message */}
+                {success && (
+                    <div style={{ background: '#e5ffe5', color: '#1a7a1a', borderRadius: '10px', padding: '10px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>
+                        ✅ {success}
                     </div>
                 )}
 

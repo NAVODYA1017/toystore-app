@@ -15,9 +15,14 @@ function Login() {
         if (!email || !password) { setError('Please enter email and password'); return; }
         try {
             setLoading(true);
-            const user = await loginUser(email, password);
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            navigate('/profile');
+            const data = await loginUser(email, password);
+            // ✅ token and role already saved in userService.js
+            // ✅ Redirect based on role
+            if (data.role === 'ROLE_ADMIN') {
+                navigate('/users');        // Admin goes to admin panel
+            } else {
+                navigate('/profile');      // Client goes to profile
+            }
         } catch (err) {
             setError('Invalid email or password');
         } finally {
@@ -69,7 +74,7 @@ function Login() {
 
                 <div style={{ marginBottom: '28px' }}>
                     <label style={{ fontWeight: '700', color: '#333', fontSize: '14px' }}>🔒 Password</label>
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" style={inputStyle} />
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" style={inputStyle} onKeyDown={e => e.key === 'Enter' && handleLogin()} />
                 </div>
 
                 <button onClick={handleLogin} disabled={loading} style={{
@@ -92,5 +97,8 @@ function Login() {
         </div>
     );
 }
+
+
+
 
 export default Login;
