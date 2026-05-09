@@ -16,8 +16,11 @@ function OrderForm() {
         status: 'PENDING'
     });
 
+    const [errors, setErrors] = useState({});
+
     const handleChange = (e) => {
         setOrder({ ...order, [e.target.name]: e.target.value });
+        setErrors({ ...errors, [e.target.name]: '' });
     };
 
     const handleSubmit = async (e) => {
@@ -27,7 +30,11 @@ function OrderForm() {
             alert('✅ Order created successfully!');
             navigate('/');
         } catch (error) {
-            alert('❌ Error creating order!');
+            if (error.response && error.response.status === 400) {
+                setErrors(error.response.data);
+            } else {
+                alert('❌ Something went wrong. Please try again.');
+            }
         }
     };
 
@@ -38,30 +45,37 @@ function OrderForm() {
                 <div className="form-group">
                     <label>👤 Customer Name</label>
                     <input name="customerName" placeholder="Enter customer name" onChange={handleChange} />
+                    {errors.customerName && <p style={{color:'red'}}>{errors.customerName}</p>}
                 </div>
                 <div className="form-group">
                     <label>📧 Email</label>
                     <input name="customerEmail" placeholder="Enter email" onChange={handleChange} />
+                    {errors.customerEmail && <p style={{color:'red'}}>{errors.customerEmail}</p>}
                 </div>
                 <div className="form-group">
                     <label>📱 Phone Number</label>
                     <input name="phoneNumber" placeholder="Enter phone number" onChange={handleChange} />
+                    {errors.phoneNumber && <p style={{color:'red'}}>{errors.phoneNumber}</p>}
                 </div>
                 <div className="form-group">
                     <label>📍 Delivery Address</label>
                     <input name="deliveryAddress" placeholder="Enter delivery address" onChange={handleChange} />
+                    {errors.deliveryAddress && <p style={{color:'red'}}>{errors.deliveryAddress}</p>}
                 </div>
                 <div className="form-group">
                     <label>🧸 Product Name</label>
                     <input name="productName" placeholder="Enter product name" onChange={handleChange} />
+                    {errors.productName && <p style={{color:'red'}}>{errors.productName}</p>}
                 </div>
                 <div className="form-group">
                     <label>🔢 Quantity</label>
                     <input name="quantity" type="number" placeholder="Enter quantity" onChange={handleChange} />
+                    {errors.quantity && <p style={{color:'red'}}>{errors.quantity}</p>}
                 </div>
                 <div className="form-group">
                     <label>💰 Total Price</label>
                     <input name="totalPrice" type="number" placeholder="Enter total price" onChange={handleChange} />
+                    {errors.totalPrice && <p style={{color:'red'}}>{errors.totalPrice}</p>}
                 </div>
                 <div className="form-group">
                     <label>💳 Payment Method</label>

@@ -1,0 +1,110 @@
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Content-Length: 246
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "customerName": "John Doe",
+  "customerEmail": "john@gmail.com",
+  "phoneNumber": "0771234567",
+  "deliveryAddress": "123 Main Street, Colombo",
+  "productName": "Toy Car",
+  "quantity": 2,
+  "totalPrice": 1500.00,
+  "paymentMethod": "CASH"
+}
+
+<> 2026-05-09T144914.201.json
+
+###
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Content-Length: 190
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "customerName": "",
+  "customerEmail": "notvalidemail",
+  "phoneNumber": "123",
+  "deliveryAddress": "",
+  "productName": "",
+  "quantity": 0,
+  "totalPrice": -1,
+  "paymentMethod": ""
+}
+
+<> 2026-05-09T144900.400.json
+
+###
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Content-Length: 246
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "customerName": "John Doe",
+  "customerEmail": "john@gmail.com",
+  "phoneNumber": "0771234567",
+  "deliveryAddress": "123 Main Street, Colombo",
+  "productName": "Toy Car",
+  "quantity": 2,
+  "totalPrice": 1500.00,
+  "paymentMethod": "CASH"
+}
+
+<> 2026-05-09T144843.201.json
+
+###
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Content-Length: 190
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "customerName": "",
+  "customerEmail": "notvalidemail",
+  "phoneNumber": "123",
+  "deliveryAddress": "",
+  "productName": "",
+  "quantity": 0,
+  "totalPrice": -1,
+  "paymentMethod": ""
+}
+
+<> 2026-05-09T144830.400.json
+
+###
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Content-Length: 190
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "customerName": "",
+  "customerEmail": "notvalidemail",
+  "phoneNumber": "123",
+  "deliveryAddress": "",
+  "productName": "",
+  "quantity": 0,
+  "totalPrice": -1,
+  "paymentMethod": ""
+}
+
+<> 2026-05-09T130200.200.json
+
+###
+

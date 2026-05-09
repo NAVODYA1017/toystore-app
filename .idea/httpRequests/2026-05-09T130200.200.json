@@ -1,0 +1,14 @@
+{
+  "id": "69fee2ef1180687283823176",
+  "customerName": "",
+  "customerEmail": "notvalidemail",
+  "phoneNumber": "123",
+  "deliveryAddress": "",
+  "productName": "",
+  "quantity": 0,
+  "totalPrice": -1.0,
+  "paymentMethod": "",
+  "status": null,
+  "createdAt": "2026-05-09T13:01:59.6770879",
+  "updatedAt": "2026-05-09T13:01:59.6770879"
+}
