@@ -1,0 +1,12 @@
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\repository\UserRepository.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\model\User.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\security\UserDetailsServiceImpl.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\config\CorsConfig.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\security\SecurityConfig.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtAuthFilter.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\BackendApplication.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\model\Role.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtUtil.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\config\DataInitializer.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\controller\UserController.java
+C:\Users\User\toystore-app\backend\src\main\java\com\toystore\backend\service\UserService.java
