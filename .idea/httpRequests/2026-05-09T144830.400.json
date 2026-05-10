@@ -1,0 +1,10 @@
+{
+  "phoneNumber": "Phone number must be 10 digits",
+  "quantity": "Quantity must be at least 1",
+  "totalPrice": "Total price cannot be negative",
+  "deliveryAddress": "Delivery address is required",
+  "customerEmail": "Email format is invalid",
+  "paymentMethod": "Payment method is required",
+  "customerName": "Customer name is required",
+  "productName": "Product name is required"
+}

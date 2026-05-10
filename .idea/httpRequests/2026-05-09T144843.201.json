@@ -1,0 +1,14 @@
+{
+  "id": "69fefbf22610674b3e97209f",
+  "customerName": "John Doe",
+  "customerEmail": "john@gmail.com",
+  "phoneNumber": "0771234567",
+  "deliveryAddress": "123 Main Street, Colombo",
+  "productName": "Toy Car",
+  "quantity": 2,
+  "totalPrice": 1500.0,
+  "paymentMethod": "CASH",
+  "status": "PENDING",
+  "createdAt": "2026-05-09T14:48:42.28895",
+  "updatedAt": "2026-05-09T14:48:42.28895"
+}
