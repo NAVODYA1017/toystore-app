@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class OrderController {
-
     @Autowired
     private OrderService orderService;
 
@@ -28,15 +26,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@Valid @RequestBody Order order) {
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         Order created = orderService.createOrder(order);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Order> updateOrder(
-            @PathVariable String id,
-            @Valid @RequestBody Order order) {
+    public ResponseEntity<Order> updateOrder(@PathVariable String id, @RequestBody Order order) {
         Order updated = orderService.updateOrder(id, order);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
