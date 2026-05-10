@@ -64,8 +64,8 @@ const UserList = () => {
                             <td style={{ padding: '12px 16px' }}>{user.phone || '—'}</td>
                             <td style={{ padding: '12px 16px' }}>
                   <span style={{
-                      background: user.role === 'ADMIN' ? '#fce8e6' : '#e6f4ea',
-                      color: user.role === 'ADMIN' ? '#d93025' : '#137333',
+                      background: user.role === 'ROLE_ADMIN' ? '#fce8e6' : '#e6f4ea',
+                      color: user.role === 'ROLE_ADMIN' ? '#d93025' : '#137333',
                       padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: '600'
                   }}>{user.role}</span>
                             </td>
