@@ -54,8 +54,8 @@ public class ReviewController {
     // Delete a review by ID
     // DELETE /api/reviews/{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteReview(@PathVariable String id) {
+    public ResponseEntity<void> deleteReview(@PathVariable String id) {// or String
         reviewService.deleteReview(id);
-        return ResponseEntity.ok("Review deleted successfully");
+       // return ResponseEntity.ok("Review deleted successfully");
     }
 }
