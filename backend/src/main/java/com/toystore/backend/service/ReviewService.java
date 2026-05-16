@@ -44,6 +44,10 @@ public class ReviewService {
     }
     // Remove a review from the database by ID
     public void deleteReview(String id) {
+        if (!reviewRepository.existsById(id)) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Review not found with id: " + id);
+        }
         reviewRepository.deleteById(id);
     }
 }
