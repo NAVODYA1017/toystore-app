@@ -24,8 +24,11 @@ public class Review {
     @NotBlank(message = "Username is required")
     private String username;    // display name of the reviewer
 
-
+    @Min(value = 1, message = "Rating must be at least 1")
+    @Max(value = 5, message = "Rating must be at most 5")
     private int rating;         // 1 to 5 stars
+
+    @NotBlank(message = "Comment cannot be empty")
     private String comment;     // the review text
     private LocalDateTime createdAt;  // when it was posted
 }
