@@ -15,9 +15,16 @@ public class Review {
     @Id
     private String id; // Auto-generated MongoDB document ID
 
+    @NotBlank(message = "Product ID is required")
     private String productId;   // The product this review belongs to
+
+    @NotBlank(message = "User ID is required")
     private String userId;      // who wrote the review
+
+    @NotBlank(message = "Username is required")
     private String username;    // display name of the reviewer
+
+
     private int rating;         // 1 to 5 stars
     private String comment;     // the review text
     private LocalDateTime createdAt;  // when it was posted
