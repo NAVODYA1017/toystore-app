@@ -4,108 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="add main app component with styles">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/logo.svg" afterDir="false" />
+    <list default="true" id="ab4134b7-d3c4-4250-8c47-7eead37bda8a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/toystore-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/toystore-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/service/ReviewService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;hdchamil-dunidu&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "hdchamil-dunidu"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/NAVODYA1017/toystore-app.git&quot;,
-    &quot;accountId&quot;: &quot;1b161d30-1101-46d4-8ca0-43f4668ae8a6&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NAVODYA1017/toystore-app.git",
+    "accountId": "1b161d30-1101-46d4-8ca0-43f4668ae8a6"
   }
-}</component>
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="3B52epbZ7V4VhDRFVdEkftPrapo" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="3Dr94vAzqmwwHPNgFn5hlMTZwms" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/review-and-rating&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Its_dunidu22/Desktop/toystore-app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "feature/review-and-rating",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.toystore.backend.BackendApplication" />
-      <module name="toystore-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.toystore.backend.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.toystore.backend.BackendApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.BackendApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -117,126 +101,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="" />
-      <created>1773764709794</created>
+      <changelist id="ab4134b7-d3c4-4250-8c47-7eead37bda8a" name="Changes" comment="" />
+      <created>1779029138065</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1773764709794</updated>
-      <workItem from="1776609759936" duration="1590000" />
-      <workItem from="1776788680716" duration="128000" />
-      <workItem from="1776788945345" duration="246000" />
-      <workItem from="1777188010082" duration="5478000" />
-      <workItem from="1777194612706" duration="4399000" />
-      <workItem from="1777400795539" duration="1507000" />
-      <workItem from="1777734934759" duration="4353000" />
-      <workItem from="1777915789604" duration="3000" />
-      <workItem from="1778213374867" duration="1214000" />
-      <workItem from="1778236963228" duration="301000" />
-      <workItem from="1778671381170" duration="9065000" />
-      <workItem from="1778739801106" duration="1765000" />
+      <updated>1779029138065</updated>
+      <workItem from="1779029157636" duration="3984000" />
     </task>
-    <task id="LOCAL-00001" summary="setup project structure and install dependencies">
-      <option name="closed" value="true" />
-      <created>1778679404678</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1778679404678</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add IntelliJ IDE configuration files">
-      <option name="closed" value="true" />
-      <created>1778690110146</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1778690110146</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add robots.txt">
-      <option name="closed" value="true" />
-      <created>1778690327387</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1778690327387</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Add frontend js files">
-      <option name="closed" value="true" />
-      <created>1778690403788</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1778690403788</updated>
-    </task>
-    <task id="LOCAL-00005" summary="add root and frontend README documentation">
-      <option name="closed" value="true" />
-      <created>1778740125375</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1778740125375</updated>
-    </task>
-    <task id="LOCAL-00006" summary="add main app component with styles">
-      <option name="closed" value="true" />
-      <created>1778742344542</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1778742344542</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="1c0084cd-d4c0-41e5-9d8f-28de29ecace3" value="TOOL_WINDOW" />
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="1c0084cd-d4c0-41e5-9d8f-28de29ecace3">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:C:/Users/Its_dunidu22/Desktop/Project/backend/src/main/java/com/toystore/backend" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-            </State>
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="setup project structure and install dependencies" />
-    <MESSAGE value="add IntelliJ IDE configuration files" />
-    <MESSAGE value="Add robots.txt" />
-    <MESSAGE value="Add frontend js files" />
-    <MESSAGE value="add root and frontend README documentation" />
-    <MESSAGE value="add main app component with styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="add main app component with styles" />
   </component>
 </project>
