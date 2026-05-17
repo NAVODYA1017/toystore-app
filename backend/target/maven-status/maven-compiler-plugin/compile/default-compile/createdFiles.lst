@@ -5,7 +5,7 @@ com\toystore\backend\controller\CartController.class
 com\toystore\backend\config\DataInitializer.class
 com\toystore\backend\controller\OrderController.class
 com\toystore\backend\model\Order.class
-com\toystore\backend\model\Role.class
+com\toystore\backend\controller\CategoryController.class
 com\toystore\backend\config\CorsConfig.class
 com\toystore\backend\model\Cart$CartItem.class
 com\toystore\backend\service\OrderService.class
@@ -15,11 +15,14 @@ com\toystore\backend\service\CartService.class
 com\toystore\backend\service\UserService.class
 com\toystore\backend\security\JwtAuthFilter.class
 com\toystore\backend\exception\ResourceNotFoundException.class
+com\toystore\backend\model\Category.class
 com\toystore\backend\model\User.class
 com\toystore\backend\exception\GlobalExceptionHandler.class
 com\toystore\backend\repository\ProductRepository.class
 com\toystore\backend\repository\OrderRepository.class
+com\toystore\backend\service\CategoryService.class
 com\toystore\backend\service\ReviewService.class
+com\toystore\backend\repository\CategoryRepository.class
 com\toystore\backend\BackendApplication.class
 com\toystore\backend\security\UserDetailsServiceImpl.class
 com\toystore\backend\controller\ReviewController.class

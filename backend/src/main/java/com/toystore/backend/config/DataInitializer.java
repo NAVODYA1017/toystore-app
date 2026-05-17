@@ -1,6 +1,5 @@
 package com.toystore.backend.config;
 
-import com.toystore.backend.model.Role;
 import com.toystore.backend.model.User;
 import com.toystore.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class DataInitializer implements CommandLineRunner {
             admin.setName("Admin");
             admin.setEmail("admin@toystore.com");
             admin.setPassword(passwordEncoder.encode("Admin@1234"));
-            admin.setRole(Role.ROLE_ADMIN);
+            admin.setRole("ADMIN");
             userRepository.save(admin);
             System.out.println("✅ Admin user created!");
         }

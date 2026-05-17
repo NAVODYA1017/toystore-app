@@ -17,12 +17,12 @@ export const registerUser = async (userData) => {
 // Login — now saves token and role
 export const loginUser = async (email, password) => {
     const response = await axios.post(`${BASE_URL}/login`, { email, password });
-    const { token, role, name } = response.data;
+    const { token, role, name, id } = response.data;
 
     // ✅ Save token and role to localStorage
     localStorage.setItem('token', token);
     localStorage.setItem('role', role);
-    localStorage.setItem('loggedInUser', JSON.stringify({ name, email, role }));
+    localStorage.setItem('loggedInUser', JSON.stringify({ id, name, email, role }));
 
     return response.data;
 };

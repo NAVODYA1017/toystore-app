@@ -2,7 +2,15 @@ import { createContext, useContext, useState, useEffect } from "react";
 import * as cartService from "../services/cartService";
 
 const CartContext = createContext();
-const CUSTOMER_ID = "customer_001";
+
+function getCustomerId() {
+    try {
+        const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+        return user.id || user.email || 'guest';
+    } catch {
+        return 'guest';
+    }
+}
 
 export function CartProvider({ children }) {
     const [cart, setCart]       = useState({ items: [] });
@@ -13,32 +21,90 @@ export function CartProvider({ children }) {
     }, []);
 
     async function fetchCart() {
-        const data = await cartService.getCart(CUSTOMER_ID);
-        setCart(data);
+        try {
+            const data = await cartService.getCart(getCustomerId());
+            if (data && data.items) setCart(data);
+        } catch (err) {
+            console.warn("Cart fetch failed, using local state:", err);
+        }
     }
 
     async function addToCart(product, quantity = 1) {
         setLoading(true);
         const item = {
-            productId:   product._id,
+            productId:   product._id || product.id,
             productName: product.name,
             price:       product.price,
             quantity:    quantity,
             imageUrl:    product.imageUrl,
         };
-        const updated = await cartService.addItem(CUSTOMER_ID, item);
-        setCart(updated);
-        setLoading(false);
+
+        // Update local state immediately
+        setCart(prev => {
+            const existing = prev.items.find(i => i.productId === item.productId);
+            if (existing) {
+                return {
+                    ...prev,
+                    items: prev.items.map(i =>
+                        i.productId === item.productId
+                            ? { ...i, quantity: i.quantity + quantity }
+                            : i
+                    )
+                };
+            }
+            return { ...prev, items: [...prev.items, item] };
+        });
+
+        // Try to sync with backend in background
+        try {
+            const updated = await cartService.addItem(getCustomerId(), item);
+            if (updated && updated.items) setCart(updated);
+        } catch (err) {
+            console.warn("Cart API unavailable, using local state:", err);
+        } finally {
+            setLoading(false);
+        }
     }
 
     async function updateQuantity(productId, quantity) {
-        const updated = await cartService.updateQuantity(CUSTOMER_ID, productId, quantity);
-        setCart(updated);
+        if (quantity <= 0) {
+            return removeItem(productId);
+        }
+
+        // Update local state immediately
+        setCart(prev => ({
+            ...prev,
+            items: prev.items.map(i =>
+                i.productId === productId ? { ...i, quantity } : i
+            )
+        }));
+
+        try {
+            const updated = await cartService.updateQuantity(getCustomerId(), productId, quantity);
+            if (updated && updated.items) setCart(updated);
+        } catch (err) {
+            console.warn("updateQuantity API failed:", err);
+        }
     }
 
     async function removeItem(productId) {
-        const updated = await cartService.removeItem(CUSTOMER_ID, productId);
-        setCart(updated);
+        // Update local state immediately
+        setCart(prev => ({
+            ...prev,
+            items: prev.items.filter(i => i.productId !== productId)
+        }));
+
+        try {
+            const updated = await cartService.removeItem(getCustomerId(), productId);
+            if (updated && updated.items) setCart(updated);
+        } catch (err) {
+            console.warn("removeItem API failed:", err);
+        }
+    }
+
+    // ✅ Added: clears cart after order is placed
+    function clearCart() {
+        setCart({ items: [] });
     }
 
     const totalItems = cart.items.reduce((sum, i) => sum + i.quantity, 0);
@@ -47,7 +113,8 @@ export function CartProvider({ children }) {
     return (
         <CartContext.Provider value={{
             cart, addToCart, updateQuantity,
-            removeItem, totalItems, totalPrice, loading
+            removeItem, clearCart,          // ✅ clearCart exported
+            totalItems, totalPrice, loading
         }}>
             {children}
         </CartContext.Provider>

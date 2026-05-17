@@ -19,6 +19,7 @@ public class Order {
     private String status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private String productId;
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -44,4 +45,6 @@ public class Order {
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+    public String getProductId() { return productId; }
+    public void setProductId(String productId) { this.productId = productId; }
 }

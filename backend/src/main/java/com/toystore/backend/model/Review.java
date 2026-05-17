@@ -12,16 +12,16 @@ public class Review {
     private String userId;
     private int rating;
     private String comment;
-    private LocalDateTime createdAt;
+    private Object createdAt;
 
-    public Review() { this.createdAt = LocalDateTime.now(); }
+    public Review() { this.createdAt = LocalDateTime.now().toString(); }
 
     public Review(String productId, String userId, int rating, String comment) {
         this.productId = productId;
         this.userId = userId;
         this.rating = rating;
         this.comment = comment;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now().toString();
     }
 
     public String getId() { return id; }
@@ -34,6 +34,6 @@ public class Review {
     public void setRating(int rating) { this.rating = rating; }
     public String getComment() { return comment; }
     public void setComment(String comment) { this.comment = comment; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public Object getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Object createdAt) { this.createdAt = createdAt; }
 }

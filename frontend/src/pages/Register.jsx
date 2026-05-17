@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { registerUser } from '../features/user-management/userService';
-import ToyRain from '../components/ToyRain';
+
 
 function Register() {
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ function Register() {
             background: 'linear-gradient(135deg, #ffd6e7, #ffecb3, #d4f1c0, #c5e8f7, #dcc5f7)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
         }}>
-            <ToyRain />
+
             <div style={{
                 position: 'relative', zIndex: 1,
                 background: 'rgba(255,255,255,0.88)',

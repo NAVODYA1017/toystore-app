@@ -1,30 +1,34 @@
-D:\Uni\Project Files\toystore-app\backend\src\main\java\exception\ResourceNotFoundException.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\Cart.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\repository\CartRepository.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\config\DataInitializer.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\controller\ReviewController.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\controller\UserController.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\Order.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\service\OrderService.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\service\ProductService.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\User.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\service\UserService.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\Role.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\repository\ReviewRepository.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\repository\UserRepository.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtUtil.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\controller\OrderController.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\Product.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\model\Review.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\service\ReviewService.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\controller\ProductController.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\exception\GlobalExceptionHandler.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\BackendApplication.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\security\SecurityConfig.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtAuthFilter.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\service\CartService.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\repository\OrderRepository.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\config\CorsConfig.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\security\UserDetailsServiceImpl.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\controller\CartController.java
-D:\Uni\Project Files\toystore-app\backend\src\main\java\com\toystore\backend\repository\ProductRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Category.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\CartRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Role.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\UserRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\OrderController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\ReviewRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\ProductService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtUtil.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\OrderService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\config\DataInitializer.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\ProductController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Cart.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\CartController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\CategoryRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\CategoryController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\CategoryService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\ReviewService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\config\CorsConfig.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\security\UserDetailsServiceImpl.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\CartService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\User.java
+E:\toystore-app\backend\src\main\java\exception\GlobalExceptionHandler.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\BackendApplication.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\OrderRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\service\UserService.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\security\JwtAuthFilter.java
+E:\toystore-app\backend\src\main\java\exception\ResourceNotFoundException.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\security\SecurityConfig.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\repository\ProductRepository.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\UserController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Product.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Review.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\controller\ReviewController.java
+E:\toystore-app\backend\src\main\java\com\toystore\backend\model\Order.java

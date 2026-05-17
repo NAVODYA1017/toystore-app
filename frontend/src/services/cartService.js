@@ -1,8 +1,15 @@
 const BASE = "http://localhost:8080/api";
 
+// ✅ Safe helper — never crashes on empty response
+async function safeJson(res) {
+    const text = await res.text();
+    if (!text || text.trim() === '') return null;
+    try { return JSON.parse(text); } catch { return null; }
+}
+
 export async function getCart(customerId) {
     const res = await fetch(`${BASE}/cart/${customerId}`);
-    return res.json();
+    return safeJson(res);
 }
 
 export async function addItem(customerId, item) {
@@ -11,7 +18,7 @@ export async function addItem(customerId, item) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(item),
     });
-    return res.json();
+    return safeJson(res);
 }
 
 export async function updateQuantity(customerId, productId, quantity) {
@@ -19,14 +26,14 @@ export async function updateQuantity(customerId, productId, quantity) {
         `${BASE}/cart/${customerId}/update/${productId}?quantity=${quantity}`,
         { method: "PUT" }
     );
-    return res.json();
+    return safeJson(res);
 }
 
 export async function removeItem(customerId, productId) {
     const res = await fetch(`${BASE}/cart/${customerId}/remove/${productId}`, {
         method: "DELETE",
     });
-    return res.json();
+    return safeJson(res);
 }
 
 export async function placeOrder(customerId, paymentMethod) {
@@ -34,5 +41,5 @@ export async function placeOrder(customerId, paymentMethod) {
         `${BASE}/orders/${customerId}/place?paymentMethod=${paymentMethod}`,
         { method: "POST" }
     );
-    return res.json();
+    return safeJson(res);
 }

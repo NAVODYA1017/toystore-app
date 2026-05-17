@@ -93,7 +93,7 @@ export default function ProductList() {
                     </div>
 
                     <button
-                        onClick={() => navigate('/admin/add')}
+                        onClick={() => navigate('/admin/products/new')}
                         style={{
                             padding:'0.65rem 1.4rem',
                             fontSize:'0.88rem', fontWeight:'700',
@@ -134,7 +134,7 @@ export default function ProductList() {
                                 product={product}
                                 index={index}
                                 onView={()   => navigate(`/product/${product.id}`)}
-                                onEdit={()   => navigate(`/admin/edit/${product.id}`)}
+                                onEdit={()   => navigate(`/admin/products/edit/${product.id}`)}
                                 onDelete={()  => handleDelete(product.id, product.name)}
                             />
                         ))}

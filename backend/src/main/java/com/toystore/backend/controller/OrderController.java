@@ -6,18 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/orders")
 @CrossOrigin(origins = "*")
 public class OrderController {
+
     @Autowired
     private OrderService orderService;
 
+    // All orders — admin only
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders() {
         return new ResponseEntity<>(orderService.getAllOrders(), HttpStatus.OK);
+    }
+
+    // Orders for logged-in user — GET /api/orders/my?email=user@example.com
+    @GetMapping("/my")
+    public ResponseEntity<List<Order>> getMyOrders(@RequestParam String email) {
+        return new ResponseEntity<>(orderService.getOrdersByEmail(email), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -27,19 +37,25 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        Order created = orderService.createOrder(order);
-        return new ResponseEntity<>(created, HttpStatus.CREATED);
+        return new ResponseEntity<>(orderService.createOrder(order), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Order> updateOrder(@PathVariable String id, @RequestBody Order order) {
-        Order updated = orderService.updateOrder(id, order);
-        return new ResponseEntity<>(updated, HttpStatus.OK);
+        return new ResponseEntity<>(orderService.updateOrder(id, order), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrder(@PathVariable String id) {
         orderService.deleteOrder(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Admin: update order status — PATCH /api/orders/{id}/status
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<Order> updateStatus(
+            @PathVariable String id,
+            @RequestBody Map<String, String> body) {
+        return new ResponseEntity<>(orderService.updateOrderStatus(id, body.get("status")), HttpStatus.OK);
     }
 }

@@ -1,14 +1,38 @@
-### Create a new product (POST)
-POST http://localhost:8080/api/products
+### Test WRONG data
+POST http://localhost:8080/api/orders
 Content-Type: application/json
 
 {
-  "name": "Lego Set",
-  "description": "Classic building blocks",
-  "price": 29.99,
-  "stock": 50,
-  "category": "Building"
+  "customerName": "",
+  "customerEmail": "notvalidemail",
+  "phoneNumber": "123",
+  "deliveryAddress": "",
+  "productName": "",
+  "quantity": 0,
+  "totalPrice": -1,
+  "paymentMethod": ""
 }
 
-### Get all products (GET)
-GET http://localhost:8080/api/products
+### Test CORRECT data
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "John Doe",
+  "customerEmail": "john@gmail.com",
+  "phoneNumber": "0771234567",
+  "deliveryAddress": "123 Main Street, Colombo",
+  "productName": "Toy Car",
+  "quantity": 2,
+  "totalPrice": 1500.00,
+  "paymentMethod": "CASH"
+}
+
+### Get all orders
+GET http://localhost:8080/api/orders
+
+### Get order by ID
+GET http://localhost:8080/api/orders/PUT_ORDER_ID_HERE
+
+### Delete order by ID
+DELETE http://localhost:8080/api/orders/PUT_ORDER_ID_HERE

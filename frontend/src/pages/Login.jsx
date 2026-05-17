@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../features/user-management/userService';
-import ToyRain from '../components/ToyRain';
+
 
 function Login() {
     const navigate = useNavigate();
@@ -16,12 +16,11 @@ function Login() {
         try {
             setLoading(true);
             const data = await loginUser(email, password);
-            // ✅ token and role already saved in userService.js
             // ✅ Redirect based on role
-            if (data.role === 'ROLE_ADMIN') {
-                navigate('/users');        // Admin goes to admin panel
+            if (data.role === 'ADMIN') {
+                navigate('/admin');
             } else {
-                navigate('/profile');      // Client goes to profile
+                navigate('/');
             }
         } catch (err) {
             setError('Invalid email or password');
@@ -43,7 +42,7 @@ function Login() {
             background: 'linear-gradient(135deg, #ffd6e7, #ffecb3, #d4f1c0, #c5e8f7, #dcc5f7)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px'
         }}>
-            <ToyRain />
+
             <div style={{
                 position: 'relative', zIndex: 1,
                 background: 'rgba(255,255,255,0.88)',
@@ -69,15 +68,18 @@ function Login() {
 
                 <div style={{ marginBottom: '20px' }}>
                     <label style={{ fontWeight: '700', color: '#333', fontSize: '14px' }}>📧 Email</label>
-                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter your email" style={inputStyle} />
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)}
+                           placeholder="Enter your email" style={inputStyle} />
                 </div>
 
                 <div style={{ marginBottom: '28px' }}>
                     <label style={{ fontWeight: '700', color: '#333', fontSize: '14px' }}>🔒 Password</label>
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter your password" style={inputStyle} onKeyDown={e => e.key === 'Enter' && handleLogin()} />
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)}
+                           placeholder="Enter your password" style={inputStyle}
+                           onKeyDown={e => e.key === 'Enter' && handleLogin()} />
                 </div>
 
-                <button onClick={handleLogin} disabled={loading} style={{
+                <button type="button" onClick={handleLogin} disabled={loading} style={{
                     width: '100%', padding: '14px',
                     background: 'linear-gradient(90deg, #e879a0, #9b79e8, #5baee8)',
                     color: 'white', border: 'none', borderRadius: '14px',
@@ -97,8 +99,5 @@ function Login() {
         </div>
     );
 }
-
-
-
 
 export default Login;

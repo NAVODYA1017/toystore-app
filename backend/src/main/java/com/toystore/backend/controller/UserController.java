@@ -48,7 +48,7 @@ public class UserController {
 
             return ResponseEntity.ok(Map.of(
                     "token", token,
-                    "role", user.getRole().name(),
+                    "role", user.getRole(),
                     "name", user.getName()
             ));
         } catch (AuthenticationException e) {

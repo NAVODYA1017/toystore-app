@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { createProduct, updateProduct, getProductById } from '../../services/productService';
+import { getAllCategories } from '../../services/categoryService';
 
 const EMPTY_PRODUCT = {
     name: '',
@@ -13,6 +14,7 @@ const EMPTY_PRODUCT = {
 
 function ProductForm() {
     const [product, setProduct]     = useState(EMPTY_PRODUCT);
+    const [categories, setCategories] = useState([]);
     const [loading, setLoading]     = useState(false);
     const [imageError, setImageError] = useState(false);
     const navigate = useNavigate();
@@ -21,7 +23,21 @@ function ProductForm() {
 
     useEffect(() => {
         if (isEditMode) fetchProduct();
+        fetchCategories();
     }, [id]);
+
+    const fetchCategories = async () => {
+        try {
+            const data = await getAllCategories();
+            if (Array.isArray(data)) {
+                setCategories(data);
+            } else {
+                setCategories([]);
+            }
+        } catch (e) {
+            console.error('Failed to load categories', e);
+        }
+    };
 
     const fetchProduct = async () => {
         try {
@@ -228,13 +244,11 @@ function ProductForm() {
 
                         {/* ── Category ── */}
                         <div style={fieldWrap}>
-                            <label style={labelStyle}>Category ID</label>
-                            <input
-                                type="text"
+                            <label style={labelStyle}>Category</label>
+                            <select
                                 name="categoryId"
                                 value={product.categoryId}
                                 onChange={handleChange}
-                                placeholder="e.g. CARS, PUZZLES, STUFFED"
                                 style={inputStyle}
                                 onFocus={(e) => {
                                     e.target.style.borderColor = '#7c3aed';
@@ -244,7 +258,14 @@ function ProductForm() {
                                     e.target.style.borderColor = '#e5e7eb';
                                     e.target.style.boxShadow   = 'none';
                                 }}
-                            />
+                            >
+                                <option value="">Select a category...</option>
+                                {categories.map(cat => (
+                                    <option key={cat.id || cat._id || cat.name} value={cat.name}>
+                                        {cat.name}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
 
                         {/* ── Price & Stock side by side ── */}
