@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-253.30387.90">
+    <data-source name="toystoredb@localhost" uuid="2b2c31ca-2df1-4f92-91cd-11244723e486">
+      <database-info product="Mongo DB" version="8.3.1" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.21" dbms="MONGO" exact-version="8.3.1" exact-driver-version="1.21" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
