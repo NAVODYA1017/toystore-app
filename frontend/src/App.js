@@ -13,11 +13,19 @@ function App() {
   };
 
   return (
-      <div className="App">
-        <h1>⭐ Reviews & Ratings</h1>
-        <ReviewForm onSave={handleSave} editReview={editReview} />
-        <ReviewList key={refresh} onEdit={setEditReview} />
+    <div className="App">
+      <div className="app-header">
+        <div className="app-header__icon">★</div>
+        <div>
+          <h1 className="app-header__title">Reviews &amp; Ratings</h1>
+          <p className="app-header__sub">Toystore — feature/review-and-rating</p>
+        </div>
       </div>
+
+      <ReviewForm onSave={handleSave} editReview={editReview} />
+      <ReviewList key={refresh} onEdit={setEditReview} />
+    </div>
   );
 }
+
 export default App;
