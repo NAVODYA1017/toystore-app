@@ -3,8 +3,10 @@ package com.toystore.backend.model;
 //Validation Import - help check data before saving to db
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate; //added now
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
 // Represents a product review stored in the "reviews" MongoDB collection
