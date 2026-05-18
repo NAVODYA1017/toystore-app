@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="I created category service, list, Form, Controller">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="Checked" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +25,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "TharinduLakshan01"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NAVODYA1017/toystore-app.git",
+    "accountId": "ee1c0c86-5882-41ad-82ce-14fe5c16c938"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -97,7 +104,7 @@
       <workItem from="1778124017463" duration="4575000" />
       <workItem from="1778578198474" duration="2153000" />
       <workItem from="1778740020974" duration="804000" />
-      <workItem from="1779086833136" duration="782000" />
+      <workItem from="1779086833136" duration="1004000" />
     </task>
     <task id="LOCAL-00001" summary="I created model,controller,repository and service files">
       <option name="closed" value="true" />
@@ -115,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778579863620</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Checked">
+      <option name="closed" value="true" />
+      <created>1779087650025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779087650025</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +151,7 @@
     <MESSAGE value="I created model,controller,repository and service files" />
     <MESSAGE value="I created category service, list, Form, Controller files" />
     <MESSAGE value="I created category service, list, Form, Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="I created category service, list, Form, Controller" />
+    <MESSAGE value="Checked" />
+    <option name="LAST_COMMIT_MESSAGE" value="Checked" />
   </component>
 </project>
