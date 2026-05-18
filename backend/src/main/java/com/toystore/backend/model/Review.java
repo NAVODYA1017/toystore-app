@@ -26,11 +26,15 @@ public class Review {
     @NotBlank(message = "Username is required")
     private String username;    // display name of the reviewer
 
+    @NotNull(message = "Rating is required")
     @Min(value = 1, message = "Rating must be at least 1")
     @Max(value = 5, message = "Rating must be at most 5")
-    private int rating;         // 1 to 5 stars
+    private Integer rating;         // 1 to 5 stars
 
     @NotBlank(message = "Comment cannot be empty")
+    @Size(min = 5, max = 1000, message = "Comment must be between 5 and 1000 characters")
     private String comment;     // the review text
+
+
     private LocalDateTime createdAt;  // when it was posted
 }
