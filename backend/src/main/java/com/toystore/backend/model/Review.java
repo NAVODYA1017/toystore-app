@@ -35,6 +35,7 @@ public class Review {
     @Size(min = 5, max = 1000, message = "Comment must be between 5 and 1000 characters")
     private String comment;     // the review text
 
-
-    private LocalDateTime createdAt;  // when it was posted
+    @CreatedDate
+    private LocalDateTime createdAt;// when it was posted
+    private LocalDateTime updatedAt;
 }
