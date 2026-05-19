@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { loginUser } from '../features/user-management/userService';
 
 
 function Login() {
     const navigate = useNavigate();
+    const location = useLocation();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const isExpired = new URLSearchParams(location.search).get('expired') === 'true';
 
     const handleLogin = async () => {
         setError('');
@@ -59,6 +62,12 @@ function Login() {
                     </h2>
                     <p style={{ color: '#666', fontSize: '14px', margin: 0 }}>Login to your Toy Store account</p>
                 </div>
+
+                {isExpired && !error && (
+                    <div style={{ background: '#fffbeb', color: '#b45309', border: '1.5px solid #fde68a', borderRadius: '12px', padding: '12px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>
+                        🔑 Your session has expired. Please log in again to continue.
+                    </div>
+                )}
 
                 {error && (
                     <div style={{ background: '#ffe5e5', color: '#c0000a', borderRadius: '10px', padding: '10px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>

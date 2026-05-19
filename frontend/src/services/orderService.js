@@ -9,7 +9,7 @@ const authHeaders = () => ({
 export const getAllOrders = () =>
     axios.get(API_URL, authHeaders());
 
-// GET /api/orders/my?email=user@example.com
+// GET http://localhost:8080/api/orders/my?email=user@example.com
 // Reads the logged-in user's email from localStorage
 export const getUserOrders = () => {
     const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');

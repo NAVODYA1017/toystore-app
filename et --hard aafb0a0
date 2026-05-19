@@ -1,0 +1,42 @@
+[33md520e52[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Clean React build with correct API URLs
+[33m22f850d[m Fix API URLs to use Railway URL
+[33mdbb3786[m Allow static React files in security config
+[33m441a05a[m Add root Dockerfile for Railway
+[33mefbe564[m Update Dockerfile to build React automatically
+[33m51ae55d[m Add React static files
+[33meefed26[m Add React static files
+[33m1f94da4[m Add React build static files
+[33me640825[m Add Dockerfile, SpaController, and React build for Railway deployment
+[33maafb0a0[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m Complete Toystore Application: Full Admin Dashboard, Payment Integration, Category Selection, and UI overhaul
+[33mde9830f[m Fix backend - add Cart CRUD, fix security config, remove Lombok, add JWT config
+[33m8713df8[m Merge into dev - keep our version
+[33m22fdd23[m Merge feature/cart into dev - keep our version
+[33m0379dc5[m Remove backend target folder from git
+[33m51e867a[m Merge feature/cart into dev
+[33me6c86f1[m Remove node_modules from git trackin git merge origin/feature/cart
+[33m84804a0[m[33m ([m[1;31morigin/feature/user-management[m[33m)[m created the cofiguration part for admin and claint
+[33m2af93f9[m[33m ([m[1;31morigin/feature/cart[m[33m)[m feat: add cart frontend and order module
+[33mc936f92[m[33m ([m[1;31morigin/feature/order-management[m[33m)[m Add validation, exception handling and frontend error display
+[33m783719d[m Add validation and exception handling
+[33m70feee0[m Merge remote-tracking branch 'origin/feature/review-and-rating' into dev
+[33m2bb7724[m Add frontend files to order management branch
+[33m4ce803e[m Merge feature/order-management into dev - keep product files
+[33m464ee47[m Merge feature/user-management into dev
+[33m473d1cd[m[33m ([m[1;31morigin/feature/products[m[33m)[m created for backend all controler modle repostry service and create front end with rainbow theam
+[33m290743c[m feat: complete toy store app with rainbow theme, CRUD operations, client/admin views
+[33mbd02665[m i created my model controler service files and connect with UI, also created front end and change UI theam into rainbow theame
+[33me9ab7ac[m Polish UI - pastel rainbow theme, toy rain animation, better contrast
+[33mb289340[m Remove misplaced App.js from pages folder
+[33m7e3d858[m Add customer UI - Login, Register, Profile pages
+[33m38674ff[m Complete User CRUD - register, login, get all, get by id, update, delete
+[33ma61e941[m[33m ([m[1;31morigin/feature/review-and-rating[m[33m)[m Add Review and Rating CRUD - model, repository, service, controller
+[33m623113a[m Update Order model with more fields
+[33mff0772d[m Add Order management CRUD
+[33mb3172f9[m test
+[33m57cdb55[m feat: add user list component
+[33mec54142[m feat: setup react frontend
+[33m56f37c0[m feat: add user management structure
+[33m00806ff[m feat: add user management package structure
+[33mf9ca863[m Add Products CRUD - model, repository, service, controller
+[33mcb7d15d[m Initial project structure - Spring Boot setup
+[33mb41a410[m Initial commit

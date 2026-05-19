@@ -128,16 +128,19 @@ export default function ProductList() {
                         gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))',
                         gap:'1rem',
                     }}>
-                        {filtered.map((product, index) => (
-                            <AdminCard
-                                key={product.id}
-                                product={product}
-                                index={index}
-                                onView={()   => navigate(`/product/${product.id}`)}
-                                onEdit={()   => navigate(`/admin/products/edit/${product.id}`)}
-                                onDelete={()  => handleDelete(product.id, product.name)}
-                            />
-                        ))}
+                        {filtered.map((product, index) => {
+                            const prodId = product.id || product._id;
+                            return (
+                                <AdminCard
+                                    key={prodId}
+                                    product={product}
+                                    index={index}
+                                    onView={()   => navigate(`/product/${prodId}`)}
+                                    onEdit={()   => navigate(`/admin/products/edit/${prodId}`)}
+                                    onDelete={()  => handleDelete(prodId, product.name)}
+                                />
+                            );
+                        })}
                     </div>
                 )}
             </div>

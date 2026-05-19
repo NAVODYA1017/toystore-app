@@ -3,6 +3,42 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { AnimatePresence } from 'framer-motion';
 import PageTransition from './components/PageTransition';
 import { CartProvider } from './context/CartContext';
+import axios from 'axios';
+
+// Configure Axios global interceptor for 401/403 errors (expired/invalid JWT)
+axios.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('loggedInUser');
+            if (!window.location.pathname.includes('/login')) {
+                window.location.href = '/login?expired=true';
+            }
+        }
+        return Promise.reject(error);
+    }
+);
+
+// Configure global Fetch override for 401/403 errors (expired/invalid JWT)
+const originalFetch = window.fetch;
+window.fetch = async (...args) => {
+    try {
+        const response = await originalFetch(...args);
+        if (response.status === 401 || response.status === 403) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('role');
+            localStorage.removeItem('loggedInUser');
+            if (!window.location.pathname.includes('/login')) {
+                window.location.href = '/login?expired=true';
+            }
+        }
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
 
 // ── Client pages ──────────────────────────────────────────────
 import ClientLayout from './components/client/ClientLayout';

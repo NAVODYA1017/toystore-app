@@ -25,7 +25,7 @@ const UserList = () => {
         if (!window.confirm('Delete this user?')) return;
         try {
             await deleteUser(id);
-            setUsers(users.filter(u => u.id !== id));
+            setUsers(users.filter(u => (u.id || u._id) !== id));
         } catch {
             alert('Failed to delete.');
         }
@@ -57,34 +57,37 @@ const UserList = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {users.map((user, i) => (
-                        <tr key={user.id} style={{ borderTop: '1px solid #eee', background: i % 2 === 0 ? 'white' : '#fafafa' }}>
-                            <td style={{ padding: '12px 16px' }}>{user.name}</td>
-                            <td style={{ padding: '12px 16px' }}>{user.email}</td>
-                            <td style={{ padding: '12px 16px' }}>{user.phone || '—'}</td>
-                            <td style={{ padding: '12px 16px' }}>
-                <span style={{
-                    background: (user.role === 'ROLE_ADMIN' || user.role === 'ADMIN') ? '#fce8e6' : '#e6f4ea',
-                    color: (user.role === 'ROLE_ADMIN' || user.role === 'ADMIN') ? '#d93025' : '#137333',
-                    padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: '600'
-                }}>{user.role?.replace('ROLE_', '')}</span>
-                            </td>
-                            <td style={{ padding: '12px 16px' }}>
-                                <button onClick={() => navigate(`/admin/users/${user.id}`)}
-                                        style={{ background: '#e8f0fe', color: '#1a73e8', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer', marginRight: '8px' }}>
-                                    View
-                                </button>
-                                <button onClick={() => navigate(`/admin/users/edit/${user.id}`)}
-                                        style={{ background: '#e6f4ea', color: '#137333', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer', marginRight: '8px' }}>
-                                    Edit
-                                </button>
-                                <button onClick={() => handleDelete(user.id)}
-                                        style={{ background: '#fce8e6', color: '#d93025', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer' }}>
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {users.map((user, i) => {
+                        const userId = user.id || user._id;
+                        return (
+                            <tr key={userId} style={{ borderTop: '1px solid #eee', background: i % 2 === 0 ? 'white' : '#fafafa' }}>
+                                <td style={{ padding: '12px 16px' }}>{user.name}</td>
+                                <td style={{ padding: '12px 16px' }}>{user.email}</td>
+                                <td style={{ padding: '12px 16px' }}>{user.phone || '—'}</td>
+                                <td style={{ padding: '12px 16px' }}>
+                                    <span style={{
+                                        background: (user.role === 'ROLE_ADMIN' || user.role === 'ADMIN') ? '#fce8e6' : '#e6f4ea',
+                                        color: (user.role === 'ROLE_ADMIN' || user.role === 'ADMIN') ? '#d93025' : '#137333',
+                                        padding: '4px 10px', borderRadius: '12px', fontSize: '12px', fontWeight: '600'
+                                    }}>{user.role?.replace('ROLE_', '')}</span>
+                                </td>
+                                <td style={{ padding: '12px 16px' }}>
+                                    <button onClick={() => navigate(`/admin/users/${userId}`)}
+                                            style={{ background: '#e8f0fe', color: '#1a73e8', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer', marginRight: '8px' }}>
+                                        View
+                                    </button>
+                                    <button onClick={() => navigate(`/admin/users/edit/${userId}`)}
+                                            style={{ background: '#e6f4ea', color: '#137333', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer', marginRight: '8px' }}>
+                                        Edit
+                                    </button>
+                                    <button onClick={() => handleDelete(userId)}
+                                            style={{ background: '#fce8e6', color: '#d93025', border: 'none', borderRadius: '6px', padding: '6px 12px', cursor: 'pointer' }}>
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        );
+                    })}
                     </tbody>
                 </table>
             )}

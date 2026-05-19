@@ -29,7 +29,7 @@ const CategoryList = () => {
         if (!window.confirm(`Are you sure you want to delete "${name}"?`)) return;
         try {
             await deleteCategory(id);
-            setCategories(categories.filter((c) => c.id !== id));
+            setCategories(categories.filter((c) => (c.id || c._id) !== id));
         } catch (err) {
             alert("Failed to delete category: " + err.message);
         }
@@ -60,29 +60,32 @@ const CategoryList = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {categories.map((cat) => (
-                        <tr key={cat.id} style={styles.tr}>
-                            <td style={styles.td}>{cat.name}</td>
-                            <td style={styles.td}>{cat.description || "—"}</td>
-                            <td style={styles.td}>
-                                <div style={{ fontSize: 28 }}>{cat.imageUrl || "📦"}</div>
-                            </td>
-                            <td style={styles.td}>
-                                <button
-                                    style={styles.editBtn}
-                                    onClick={() => navigate(`/admin/categories/edit/${cat.id}`)}
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    style={styles.deleteBtn}
-                                    onClick={() => handleDelete(cat.id, cat.name)}
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {categories.map((cat) => {
+                        const catId = cat.id || cat._id;
+                        return (
+                            <tr key={catId} style={styles.tr}>
+                                <td style={styles.td}>{cat.name}</td>
+                                <td style={styles.td}>{cat.description || "—"}</td>
+                                <td style={styles.td}>
+                                    <div style={{ fontSize: 28 }}>{cat.imageUrl || "📦"}</div>
+                                </td>
+                                <td style={styles.td}>
+                                    <button
+                                        style={styles.editBtn}
+                                        onClick={() => navigate(`/admin/categories/edit/${catId}`)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        style={styles.deleteBtn}
+                                        onClick={() => handleDelete(catId, cat.name)}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        );
+                    })}
                     </tbody>
                 </table>
             )}

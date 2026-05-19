@@ -214,51 +214,54 @@ export default function CheckoutPage() {
         if (!cart.items || cart.items.length === 0) return;
         setPayError('');
 
-        // For simplicity, handle one product per order (matching your Order model).
-        // If cart has multiple items, we create one order per item.
-        // To support multi-item carts, you'd need to update your Order model.
-        const firstItem = cart.items[0];
-
-        // Build the order object matching your Order.java fields exactly
-        const orderPayload = {
-            customerName:    address.fullName,
-            customerEmail:   customerEmail,
-            phoneNumber:     address.phone,
-            deliveryAddress: `${address.street}, ${address.city}, ${address.district}${address.postalCode ? ', ' + address.postalCode : ''}`,
-            productId:       firstItem?.productId || firstItem?.id || firstItem?._id,
-            productName:     firstItem?.productName || firstItem?.name || 'Product',
-            quantity:        firstItem?.quantity || 1,
-            totalPrice:      grandTotal,
-            paymentMethod:   paymentMethod,
-            // CARD = confirmed immediately, COD = pending until admin confirms
-            status:          paymentMethod === 'CARD' ? 'CONFIRMED' : 'PENDING',
-        };
-
         setLoading(true);
         try {
-            const response = await createOrder(orderPayload);
-            const savedOrder = response.data || response; // depending on interceptor
+            let lastSavedOrder = null;
 
-            // Create payment record
-            const paymentPayload = {
-                orderId: savedOrder.id || savedOrder._id || `ORD-${Date.now()}`,
-                customerId: user.id || user._id || 'GUEST',
-                customerName: address.fullName,
-                amount: grandTotal,
-                paymentMethod: paymentMethod === 'CARD' ? 'CREDIT_CARD' : 'CASH_ON_DELIVERY',
-                status: paymentMethod === 'CARD' ? 'COMPLETED' : 'PENDING',
-                transactionId: `TXN-${Math.floor(Math.random() * 100000000)}`,
-                paymentDate: new Date().toISOString()
-            };
-            
-            try {
-                await createPayment(paymentPayload);
-            } catch (err) {
-                console.error("Payment record creation failed, but order was saved", err);
+            // Loop through all items in the cart to place an order for each one
+            for (const item of cart.items) {
+                const itemShippingShare = shipping / cart.items.length;
+                const itemTotal = (item.price * item.quantity) + itemShippingShare;
+
+                const orderPayload = {
+                    customerName:    address.fullName,
+                    customerEmail:   customerEmail,
+                    phoneNumber:     address.phone,
+                    deliveryAddress: `${address.street}, ${address.city}, ${address.district}${address.postalCode ? ', ' + address.postalCode : ''}`,
+                    productId:       item?.productId || item?.id || item?._id,
+                    productName:     item?.productName || item?.name || 'Product',
+                    quantity:        item?.quantity || 1,
+                    totalPrice:      itemTotal,
+                    paymentMethod:   paymentMethod,
+                    // CARD = confirmed immediately, COD = pending until admin confirms
+                    status:          paymentMethod === 'CARD' ? 'CONFIRMED' : 'PENDING',
+                };
+
+                const response = await createOrder(orderPayload);
+                const savedOrder = response.data || response;
+                lastSavedOrder = savedOrder;
+
+                // Create payment record
+                const paymentPayload = {
+                    orderId: savedOrder.id || savedOrder._id || `ORD-${Date.now()}`,
+                    customerId: user.id || user._id || 'GUEST',
+                    customerName: address.fullName,
+                    amount: itemTotal,
+                    paymentMethod: paymentMethod === 'CARD' ? 'CREDIT_CARD' : 'CASH_ON_DELIVERY',
+                    status: paymentMethod === 'CARD' ? 'COMPLETED' : 'PENDING',
+                    transactionId: `TXN-${Math.floor(Math.random() * 100000000)}`,
+                    paymentDate: new Date().toISOString()
+                };
+                
+                try {
+                    await createPayment(paymentPayload);
+                } catch (err) {
+                    console.error("Payment record creation failed, but order was saved", err);
+                }
             }
 
             clearCart();
-            navigate('/orders/confirm', { state: { order: savedOrder } });
+            navigate('/orders/confirm', { state: { order: lastSavedOrder } });
         } catch (err) {
             console.error('Order creation failed:', err);
             setPayError('Failed to place order. Please check your connection and try again.');
