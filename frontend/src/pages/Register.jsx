@@ -10,21 +10,86 @@ function Register() {
     const [success, setSuccess] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = e => {
+        setError('');
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    // ✅ Frontend validation
+    const validate = () => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+        if (!form.name || !form.email || !form.password) {
+            setError('Name, email and password are required');
+            return false;
+        }
+        if (!emailRegex.test(form.email)) {
+            setError('❌ Invalid email. Use example@gmail.com');
+            return false;
+        }
+        if (form.password.length < 8) {
+            setError('❌ Password must be at least 8 characters');
+            return false;
+        }
+        if (!/[A-Z]/.test(form.password)) {
+            setError('❌ Password must contain at least one uppercase letter');
+            return false;
+        }
+        if (!/[0-9]/.test(form.password)) {
+            setError('❌ Password must contain at least one number');
+            return false;
+        }
+        if (!/[!@#$%^&*]/.test(form.password)) {
+            setError('❌ Password must contain at least one special character (!@#$%^&*)');
+            return false;
+        }
+        return true;
+    };
 
     const handleRegister = async () => {
         setError('');
-        if (!form.name || !form.email || !form.password) { setError('Name, email and password are required'); return; }
+        if (!validate()) return;
         try {
             setLoading(true);
-            await registerUser(form); // ✅ no role sent — backend sets ROLE_CLIENT automatically
+            await registerUser(form);
             setSuccess('Account created! Redirecting to login...');
-            setTimeout(() => navigate('/login'), 1500); // ✅ go to login after register
+            setTimeout(() => navigate('/login'), 1500);
         } catch (err) {
-            setError('Email already exists or registration failed');
+            // ✅ Shows exact backend error message
+            const msg = err.response?.data?.error
+                || err.response?.data?.message
+                || 'Registration failed. Please try again.';
+            setError('❌ ' + msg);
         } finally {
             setLoading(false);
         }
+    };
+
+    // Password strength
+    const getStrength = () => {
+        let s = 0;
+        if (form.password.length >= 8) s++;
+        if (/[A-Z]/.test(form.password)) s++;
+        if (/[0-9]/.test(form.password)) s++;
+        if (/[!@#$%^&*]/.test(form.password)) s++;
+        return s;
+    };
+
+    const getStrengthColor = (level) => {
+        const s = getStrength();
+        if (s === 0) return '#ddd';
+        if (s === 1) return level <= 1 ? '#d93025' : '#ddd';
+        if (s === 2) return level <= 2 ? '#f4a030' : '#ddd';
+        if (s === 3) return level <= 3 ? '#1a73e8' : '#ddd';
+        return '#137333';
+    };
+
+    const getStrengthText = () => {
+        const s = getStrength();
+        if (s === 1) return '🔴 Weak';
+        if (s === 2) return '🟡 Fair';
+        if (s === 3) return '🔵 Good';
+        if (s === 4) return '🟢 Strong';
+        return '';
     };
 
     const fields = [
@@ -61,11 +126,10 @@ function Register() {
 
                 {error && (
                     <div style={{ background: '#ffe5e5', color: '#c0000a', borderRadius: '10px', padding: '10px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>
-                        ⚠️ {error}
+                        {error}
                     </div>
                 )}
 
-                {/* ✅ Success message */}
                 {success && (
                     <div style={{ background: '#e5ffe5', color: '#1a7a1a', borderRadius: '10px', padding: '10px 16px', marginBottom: '16px', fontSize: '14px', fontWeight: '600' }}>
                         ✅ {success}
@@ -86,6 +150,21 @@ function Register() {
                                 boxSizing: 'border-box', outline: 'none',
                             }}
                         />
+                        {/* ✅ Password strength bar */}
+                        {field.name === 'password' && form.password && (
+                            <div style={{ marginTop: '8px' }}>
+                                <div style={{ display: 'flex', gap: '4px', marginBottom: '4px' }}>
+                                    {[1, 2, 3, 4].map(level => (
+                                        <div key={level} style={{
+                                            height: '4px', flex: 1, borderRadius: '2px',
+                                            background: getStrengthColor(level),
+                                            transition: 'background 0.3s'
+                                        }} />
+                                    ))}
+                                </div>
+                                <small style={{ fontSize: '12px' }}>{getStrengthText()}</small>
+                            </div>
+                        )}
                     </div>
                 ))}
 

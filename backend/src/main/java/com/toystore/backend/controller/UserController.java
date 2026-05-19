@@ -23,18 +23,17 @@ public class UserController {
     @Autowired private JwtUtil jwtUtil;
     @Autowired private AuthenticationManager authenticationManager;
 
-    // POST /api/users/register
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(userService.registerUser(user));
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", e.getMessage()));
         }
     }
 
-    // POST /api/users/login  ✅ now returns JWT token
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> creds) {
         try {
@@ -45,11 +44,12 @@ public class UserController {
             );
             User user = userService.getUserByEmail(creds.get("email"));
             String token = jwtUtil.generateToken(user);
-
             return ResponseEntity.ok(Map.of(
                     "token", token,
                     "role", user.getRole().name(),
-                    "name", user.getName()
+                    "name", user.getName(),
+                    "id", user.getId(),
+                    "email", user.getEmail()
             ));
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
@@ -57,13 +57,11 @@ public class UserController {
         }
     }
 
-    // GET /api/users  (Admin only — protected by SecurityConfig)
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    // GET /api/users/{id}
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable String id) {
         try { return ResponseEntity.ok(userService.getUserById(id)); }
@@ -73,17 +71,15 @@ public class UserController {
         }
     }
 
-    // PUT /api/users/{id}
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable String id, @RequestBody User user) {
         try { return ResponseEntity.ok(userService.updateUser(id, user)); }
         catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Map.of("error", e.getMessage()));
         }
     }
 
-    // DELETE /api/users/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable String id) {
         try {

@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="2eacc8e2-9b8d-44da-a18c-5d5e27438e55" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/config/DataInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/config/DataInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/toystore/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/config/DataInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/config/DataInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/security/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/toystore/backend/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/user-management/UserForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/user-management/UserForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/features/user-management/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/features/user-management/userService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +121,10 @@
       <workItem from="1778309648557" duration="11443000" />
       <workItem from="1778326395862" duration="589000" />
       <workItem from="1778476383118" duration="4501000" />
-      <workItem from="1778580469526" duration="1236000" />
+      <workItem from="1778580469526" duration="2807000" />
+      <workItem from="1778656842560" duration="1800000" />
+      <workItem from="1778945304346" duration="15787000" />
+      <workItem from="1779090716190" duration="12458000" />
     </task>
     <servers />
   </component>
