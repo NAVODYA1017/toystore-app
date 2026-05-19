@@ -2,11 +2,27 @@
 
 const BASE_URL = "http://localhost:8080/api/categories";
 
+let categoriesCache = null;
+let categoriesCacheTime = 0;
+const CACHE_DURATION = 15000; // 15 seconds
+
+export const clearCategoriesCache = () => {
+    categoriesCache = null;
+    categoriesCacheTime = 0;
+};
+
 // Get all categories
-export const getAllCategories = async () => {
+export const getAllCategories = async (forceRefresh = false) => {
+    const now = Date.now();
+    if (!forceRefresh && categoriesCache && (now - categoriesCacheTime < CACHE_DURATION)) {
+        return categoriesCache;
+    }
     const response = await fetch(BASE_URL);
     if (!response.ok) throw new Error("Failed to fetch categories");
-    return response.json();
+    const data = await response.json();
+    categoriesCache = data;
+    categoriesCacheTime = now;
+    return data;
 };
 
 // Get single category by ID
@@ -27,6 +43,7 @@ const getHeaders = () => {
 
 // Create new category
 export const createCategory = async (categoryData) => {
+    clearCategoriesCache();
     const response = await fetch(BASE_URL, {
         method: "POST",
         headers: getHeaders(),
@@ -41,6 +58,7 @@ export const createCategory = async (categoryData) => {
 
 // Update existing category
 export const updateCategory = async (id, categoryData) => {
+    clearCategoriesCache();
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: "PUT",
         headers: getHeaders(),
@@ -55,6 +73,7 @@ export const updateCategory = async (id, categoryData) => {
 
 // Delete category
 export const deleteCategory = async (id) => {
+    clearCategoriesCache();
     const token = localStorage.getItem('token');
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: "DELETE",

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getAllProducts } from '../../services/productService';
 import { useCart } from '../../context/CartContext';
 
 export default function ShopPage() {
     const [products, setProducts] = useState([]);
-    const [filtered, setFiltered] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('ALL');
     const [search, setSearch] = useState('');
@@ -23,8 +22,7 @@ export default function ShopPage() {
 
         getAllProducts().then(data => {
             setProducts(data);
-            setFiltered(data);
-            const cats = [...new Set(data.map(p => p.category).filter(Boolean))];
+            const cats = [...new Set(data.map(p => p.categoryId || p.category).filter(Boolean))];
             // If the requested category isn't in our dynamic list yet, we can still filter by it
             if (urlCat && !cats.includes(urlCat)) cats.push(urlCat);
             setCategories(cats);
@@ -32,11 +30,11 @@ export default function ShopPage() {
         });
     }, [location.search]);
 
-    useEffect(() => {
+    const filtered = useMemo(() => {
         let result = [...products];
 
         if (selectedCategory !== 'ALL')
-            result = result.filter(p => p.category === selectedCategory);
+            result = result.filter(p => (p.categoryId || p.category) === selectedCategory);
 
         if (search)
             result = result.filter(p =>
@@ -47,7 +45,7 @@ export default function ShopPage() {
         if (sortBy === 'price-desc') result.sort((a, b) => b.price - a.price);
         if (sortBy === 'name')       result.sort((a, b) => a.name?.localeCompare(b.name));
 
-        setFiltered(result);
+        return result;
     }, [selectedCategory, search, sortBy, products]);
 
     return (
@@ -223,7 +221,7 @@ function ShopProductCard({ product, addToCart, navigate }) {
             {/* Info */}
             <div style={{ padding: 16 }}>
                 <div style={{ fontSize: 12, color: '#9f7aea', fontWeight: 600, marginBottom: 4 }}>
-                    {product.category || 'Toy'}
+                    {product.categoryId || product.category || 'Toy'}
                 </div>
                 <div style={{ fontWeight: 700, fontSize: 15, color: '#2d2d2d', marginBottom: 4,
                     whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
